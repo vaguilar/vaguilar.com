@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "./layout2";
+import Layout from "./layout";
 
 export default function Template({ pageContext }) {
   const posts = pageContext.posts.map(({ node }, i) => {
