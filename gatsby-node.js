@@ -1,21 +1,47 @@
-const fs = require("fs");
+const path = require("path");
 
-const POSTS_PATH = "./site/posts/";
-exports.createPages = async ({ actions: { createPage } }) => {
-  fs.readdirSync(POSTS_PATH).forEach((file, i) => {
-    let contents = fs.readFileSync(POSTS_PATH + file + "/index.html", "utf8");
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+
+  const blogPostTemplate = path.resolve(`src/templates/post.js`);
+
+  return graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              icon
+              date
+              title
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
     createPage({
-      path: `/posts/${i + 1}/`,
-      component: require.resolve("./src/templates/layout.js"),
-      context: { contents }
+      path: "/",
+      component: path.resolve("src/templates/index.js"),
+      context: {
+        posts: result.data.allMarkdownRemark.edges
+      }
     });
-  });
 
-  // Create a page that lists all Pokémon.
-  let contents = fs.readFileSync("./site/index.html", "utf8");
-  createPage({
-    path: `/`,
-    component: require.resolve("./src/templates/layout.js"),
-    context: { contents }
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPostTemplate,
+        context: {} // additional data can be passed via context
+      });
+    });
   });
 };

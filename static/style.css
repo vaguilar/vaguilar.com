@@ -1,81 +1,103 @@
 body {
-	line-height: 1.5;
-	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-	color: #222;
+  line-height: 1.5;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  color: #222;
 }
-a:visited, a:link {
-	color: #00c;
-	text-decoration: none;
+
+a:visited,
+a:link {
+  color: #00c;
+  text-decoration: none;
 }
+
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
+
 pre {
-	font-family: Courier, monospace;
-	border-radius: 8px;
-	background-color: #f0f0f0;
-	padding: 1rem 2rem;
-	margin: 1.5rem 0;
-	font-size: 0.8rem;
-	overflow: auto;
+  font-family: Courier, monospace;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  padding: 1rem 2rem;
+  margin: 1.5rem 0;
+  font-size: 0.8rem;
+  overflow: auto;
 }
+
 .small {
-	font-size: 0.9rem;
+  font-size: 0.9rem;
 }
+
 h2 {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
-iframe, img {
-	display: block;
-	max-width: 760px;
-	padding: 1.2rem;
+
+iframe,
+img {
+  display: block;
+  max-width: 760px;
+  padding: 1.2rem;
 }
+
 .center {
-	margin: auto;
+  margin: auto;
 }
-.info a, .info a:hover, .info a:link, .info a:visited {
-	color: #000;
-	text-decoration: none;
+
+.info a,
+.info a:hover,
+.info a:link,
+.info a:visited {
+  color: #000;
+  text-decoration: none;
 }
+
 .fa {
-	text-align: middle;
+  text-align: middle;
 }
+
 .date {
-	margin-top: 0;
-	color: #777;
+  margin-top: 0;
+  color: #777;
 }
 
 .content {
-	margin: auto;
-	width: 90%;
-	max-width: 760px;
+  margin: auto;
+  width: 90%;
+  max-width: 760px;
 }
+
 .info {
-	margin: auto;
-	width: 90%;
-	max-width: 760px;
+  margin: auto;
+  width: 90%;
+  max-width: 760px;
 }
+
 .left {
-	display: inline-block;
-	width: 49%;
+  display: inline-block;
+  width: 49%;
 }
+
 .right {
-	display: inline-block;
-	text-align: right;
-	width: 49%;
-	overflow: none;
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+  overflow: none;
 }
 
 #email-icon {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 480px) {
-	.yt-video {
-		max-width: 100%;
-	}
-	img {
-		max-width: 100%;
-	}
+  .yt-video {
+    max-width: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
 }
 
+.blog-post img {
+  margin: auto;
+  max-width: 680px;
+}
