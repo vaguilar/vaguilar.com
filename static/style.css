@@ -84,6 +84,10 @@ img {
   overflow: none;
 }
 
+.right i {
+  padding-left: 0.5rem;
+}
+
 #email-icon {
   cursor: pointer;
 }
